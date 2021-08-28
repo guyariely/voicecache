@@ -1,0 +1,40 @@
+.recorder {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.recorder .button {
+  padding: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.recorder .button.start {
+  background: #fff;
+}
+
+.recorder .button.start:hover {
+  box-shadow: 0 0 0 20px rgb(240 246 251), 0 0 0 40px rgb(240 246 251 / 46%);
+}
+
+.recorder .button.stop {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 20px rgba(237, 190, 189, 1),
+    0 0 0 40px rgba(235, 207, 210, 1);
+}
+
+.recorder .button.stop:hover {
+  box-shadow: none;
+}
+
+.recorder .mic-icon {
+  font-size: 45px;
+}
+
+.recorder .start .mic-icon {
+  color: rgba(255, 107, 89, 1);
+}
+
+.recorder .stop .mic-icon {
+  color: #fff;
+}

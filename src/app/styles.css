@@ -1,0 +1,38 @@
+#root {
+  --background-color: #ebf3fa;
+  --text-color: #31456a;
+  --text-secondary-color: rgba(255, 255, 255, 1);
+  --shadow-color: rgba(176, 195, 210, 0.7278);
+  --shadow-primary-color: rgba(255, 134, 119, 1);
+  --primary-color: linear-gradient(89.91deg, #ff6b59 -8.26%, #d35646 144.55%);
+  --border-color: rgba(229, 239, 250, 1);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100%;
+  background-color: var(--background-color);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.sidebar,
+.main {
+  height: 100%;
+}
+
+.sidebar {
+  overflow: auto;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.main .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
