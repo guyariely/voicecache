@@ -5,22 +5,29 @@
   box-shadow: none;
 }
 
+.audio-player .rhap_progress-container {
+  margin: 0 5px;
+}
+
 .audio-player .rhap_progress-bar {
   align-items: center;
   display: flex;
   padding: 0 10px;
   height: 35px;
 
-  background: linear-gradient(135deg, #e8f0f8 0%, #ffffff 100%);
-  border: 3px solid #e3edf7;
-  box-shadow: inset 30px -24px 26px rgb(255 255 255 / 75%),
-    inset 0px 9px 18px #c9d3e2, inset 0px 2px 22px #c8d4e2;
+  background: var(--background-secondary-color);
+  border: 3px solid var(--border-color);
+  box-shadow: var(--inset-shadow);
   border-radius: 41px;
 }
 
 .audio-player .rhap_progress-filled {
   height: 60%;
-  background: linear-gradient(180deg, #9bb9d3 0%, #7d96ad 100%);
+  background: linear-gradient(
+    180deg,
+    var(--text-teritary-color) 0%,
+    #7d96ad 100%
+  );
   box-shadow: -6px -6px 16px rgb(255 255 255 / 60%), 6px 9px 40px #99b7d1;
   border-radius: 37px;
 }
@@ -30,20 +37,20 @@
 }
 
 .audio-player .rhap_progress-indicator {
-  background: #e4f0fa;
-  box-shadow: 25px 28px 66px rgb(176 195 210 / 73%);
+  background: var(--background-color);
+  box-shadow: 25px 28px 66px var(--shadow-color);
   border-radius: 74px;
   height: 44px;
   width: 82px;
-  border: 2px solid#fff;
+  border: 2px solid var(--border-secondary-color);
 }
 
 .audio-player .rhap_progress-indicator::before {
   content: "";
   width: 18px;
   height: 18px;
-  background: linear-gradient(89.91deg, #ff6b59 -8.26%, #d35646 144.55%);
-  box-shadow: -6px -6px 16px rgba(255, 255, 255, 0.6), 6px 9px 40px #ff8677;
+  background: var(--primary-color);
+  box-shadow: 0px 0px 30px 0px var(--shadow-primary-color);
   border-radius: 46px;
   position: absolute;
   top: 28%;
@@ -53,5 +60,5 @@
 .audio-player .play-icon,
 .audio-player .pause-icon {
   font-size: 40px;
-  color: #97b4cf;
+  color: var(--text-teritary-color);
 }

@@ -1,11 +1,20 @@
 #root {
   --background-color: #ebf3fa;
+  --background-secondary-color: linear-gradient(
+    135deg,
+    #e8f0f8 0%,
+    #ffffff 100%
+  );
   --text-color: #31456a;
   --text-secondary-color: rgba(255, 255, 255, 1);
+  --text-teritary-color: #97b4cf;
   --shadow-color: rgba(176, 195, 210, 0.7278);
   --shadow-primary-color: rgba(255, 134, 119, 1);
   --primary-color: linear-gradient(89.91deg, #ff6b59 -8.26%, #d35646 144.55%);
   --border-color: rgba(229, 239, 250, 1);
+  --border-secondary-color: #ffff;
+  --inset-shadow: inset 30px -24px 26px rgb(255 255 255 / 75%),
+    inset 0px 9px 18px #c9d3e2, inset 0px 2px 22px #c8d4e2;
 }
 
 .app {
@@ -35,4 +44,9 @@
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
+}
+
+.welcome-message {
+  font-size: 22px;
+  color: var(--text-color);
 }

@@ -29,7 +29,9 @@ function Content(props) {
     return <AudioPlayer src={URL.createObjectURL(selectedRecording.data)} />;
   }
 
-  return <p>Press on the mic icon to start recording</p>;
+  return (
+    <p className="welcome-message">Press on the mic icon to start recording</p>
+  );
 }
 
 function App() {
