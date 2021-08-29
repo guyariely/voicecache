@@ -1,7 +1,12 @@
 import React from "react";
 import "./styles.css";
 import { StylesProvider } from "@material-ui/core/styles";
-import { RecordingList, SoundVisualizer, Recorder } from "./components";
+import {
+  RecordingList,
+  SoundVisualizer,
+  Recorder,
+  AudioPlayer,
+} from "./components";
 import { useRecorder } from "./hooks";
 
 function Content(props) {
@@ -21,7 +26,7 @@ function Content(props) {
   }
 
   if (selectedRecording) {
-    return <audio controls src={URL.createObjectURL(selectedRecording.data)} />;
+    return <AudioPlayer src={URL.createObjectURL(selectedRecording.data)} />;
   }
 
   return <p>Press on the mic icon to start recording</p>;
