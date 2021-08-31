@@ -12,6 +12,7 @@ export function RecordingList() {
       {recordings.map(id => (
         <RecordingItem key={id} id={id} />
       ))}
+      <div className="bottom-padding"></div>
     </ul>
   );
 }

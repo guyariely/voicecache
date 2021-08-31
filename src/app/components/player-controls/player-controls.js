@@ -30,8 +30,8 @@ export function PlayerControls() {
   const playlist = usePlaylist();
 
   return (
-    <div className="player-controls">
-      {playlist.at !== -1 && (
+    !Object.is(playlist.at, undefined) && (
+      <div className="player-controls">
         <div className="controls">
           <Control
             icon={Shuffle}
@@ -56,7 +56,7 @@ export function PlayerControls() {
             onClick={() => setLoopRecording(loop => !loop)}
           />
         </div>
-      )}
-    </div>
+      </div>
+    )
   );
 }
