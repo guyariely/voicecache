@@ -14,8 +14,9 @@ import {
   recordingState,
   selectedRecordingState,
 } from "./atoms/recording";
+import { PlayerControls } from "./components/player-controls/player-controls";
 
-function Content(props) {
+function Main(props) {
   const { recorder } = props;
   const selectedRecording = useRecoilValue(selectedRecordingState);
   const recording = useRecoilValue(recordingState(selectedRecording));
@@ -56,13 +57,13 @@ function App() {
   return (
     <StylesProvider injectFirst>
       <div className="app">
-        <aside className="sidebar">
+        <aside className="recordings-container">
           <RecordingList />
         </aside>
-        <main className="main">
-          <div className="content">
-            <Content recorder={recorder} />
-          </div>
+        <main className="main-container">
+          <Main recorder={recorder} />
+        </main>
+        <footer className="recorder-container">
           <Recorder
             start={() => {
               setSelectedRecording(null);
@@ -71,7 +72,10 @@ function App() {
             stop={recorder.stop}
             isRecording={recorder.isRecording}
           />
-        </main>
+        </footer>
+        <aside className="controls-container">
+          <PlayerControls />
+        </aside>
       </div>
     </StylesProvider>
   );

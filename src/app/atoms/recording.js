@@ -19,3 +19,13 @@ export const recordingState = atomFamily({
     id: "",
   },
 });
+
+export const LoopRecordingState = atom({
+  key: "loopRecording",
+  default: false,
+});
+
+export const ShuffleRecordingsState = atom({
+  key: "shuffleRecordings",
+  default: false,
+});
