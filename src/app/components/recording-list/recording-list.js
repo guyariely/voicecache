@@ -1,23 +1,16 @@
 import React from "react";
-import { toDateString, toTimeString } from "../../utils";
+import { useRecoilValue } from "recoil";
+import { recordingsState } from "../../atoms/recording";
+import { RecordingItem } from "../recording-item/recording-item";
 import "./styles.css";
 
-export function RecordingList(props) {
-  const { recordings, selectRecordingId, selectRecording } = props;
+export function RecordingList() {
+  const recordings = useRecoilValue(recordingsState);
 
   return (
     <ul className="recording-list">
-      {recordings.map(recording => (
-        <li
-          key={recording.id}
-          className={`recording-item ${
-            selectRecordingId === recording.id ? "active" : ""
-          }`}
-          onClick={() => selectRecording(recording)}
-        >
-          <h2 className="date">{toDateString(recording.createdAt)}</h2>
-          <p className="duration">{toTimeString(recording.duration)}</p>
-        </li>
+      {recordings.map(id => (
+        <RecordingItem key={id} id={id} />
       ))}
     </ul>
   );

@@ -8,9 +8,17 @@ import {
   AudioPlayer,
 } from "./components";
 import { useRecorder } from "./hooks";
+import { useRecoilCallback, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  recordingsState,
+  recordingState,
+  selectedRecordingState,
+} from "./atoms/recording";
 
 function Content(props) {
-  const { recorder, selectedRecording } = props;
+  const { recorder } = props;
+  const selectedRecording = useRecoilValue(selectedRecordingState);
+  const recording = useRecoilValue(recordingState(selectedRecording));
 
   if (recorder.isRecording) {
     return (
@@ -25,8 +33,8 @@ function Content(props) {
     );
   }
 
-  if (selectedRecording) {
-    return <AudioPlayer src={URL.createObjectURL(selectedRecording.data)} />;
+  if (recording.data) {
+    return <AudioPlayer src={URL.createObjectURL(recording.data)} />;
   }
 
   return (
@@ -35,29 +43,25 @@ function Content(props) {
 }
 
 function App() {
-  const [recordings, setRecordings] = React.useState([]);
-  const [selectedRecording, setSelectedRecording] = React.useState(null);
-  const recorder = useRecorder(recording => {
-    setRecordings(recordings => [...recordings, recording]);
-    setSelectedRecording(recording);
+  const setSelectedRecording = useSetRecoilState(selectedRecordingState);
+
+  const recorder = useRecorder(recording => addRecording(recording));
+
+  const addRecording = useRecoilCallback(({ set }) => newRecording => {
+    set(selectedRecordingState, newRecording.id);
+    set(recordingsState, recordings => [...recordings, newRecording.id]);
+    set(recordingState(newRecording.id), newRecording);
   });
 
   return (
     <StylesProvider injectFirst>
       <div className="app">
         <aside className="sidebar">
-          <RecordingList
-            selectRecordingId={selectedRecording ? selectedRecording.id : null}
-            selectRecording={setSelectedRecording}
-            recordings={recordings}
-          />
+          <RecordingList />
         </aside>
         <main className="main">
           <div className="content">
-            <Content
-              recorder={recorder}
-              selectedRecording={selectedRecording}
-            />
+            <Content recorder={recorder} />
           </div>
           <Recorder
             start={() => {
