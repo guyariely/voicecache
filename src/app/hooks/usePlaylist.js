@@ -3,7 +3,7 @@ import {
   nextRecordingState,
   playlistIndexState,
   prevRecordingState,
-} from "../atoms/playlist";
+} from "../selectors/playlist";
 import { selectedRecordingState } from "../atoms/recording";
 
 export function usePlaylist() {

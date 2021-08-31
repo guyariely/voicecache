@@ -4,7 +4,7 @@ import {
   recordingsState,
   selectedRecordingState,
   ShuffleRecordingsState,
-} from "./recording";
+} from "../atoms/recording";
 
 export const playlistIndexState = selector({
   key: "selectedRecordingIndex",
