@@ -1,4 +1,4 @@
-import { atom, atomFamily } from "recoil";
+import { atom, atomFamily, selector } from "recoil";
 
 export const selectedRecordingState = atom({
   key: "selectedRecording",
@@ -28,4 +28,20 @@ export const LoopRecordingState = atom({
 export const ShuffleRecordingsState = atom({
   key: "shuffleRecordings",
   default: false,
+});
+
+export const VolumeState = atom({
+  key: "volume",
+  default: 0.8,
+});
+
+export const SliderVolumeState = selector({
+  key: "sliderVolume",
+  get: ({ get }) => {
+    const volume = get(VolumeState);
+    return Math.round(volume * 100);
+  },
+  set: ({ set }, newValue) => {
+    set(VolumeState, (newValue / 100).toFixed(2));
+  },
 });

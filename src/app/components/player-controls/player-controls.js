@@ -7,6 +7,7 @@ import {
   ShuffleRecordingsState,
 } from "../../atoms/recording";
 import { usePlaylist } from "../../hooks";
+import { VolumeSlider } from "../volume-slider/volume-slider";
 import "./styles.css";
 
 function Control(props) {
@@ -55,6 +56,7 @@ export function PlayerControls() {
             className={`loop ${loopRecording ? "active" : ""}`}
             onClick={() => setLoopRecording(loop => !loop)}
           />
+          <VolumeSlider />
         </div>
       </div>
     )
