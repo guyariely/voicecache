@@ -32,7 +32,7 @@
 }
 .recording-item.active .date,
 .recording-item.active .duration {
-  color: var(--text-secondary-color);
+  color: var(--background-teritary-color);
   font-weight: 400;
 }
 

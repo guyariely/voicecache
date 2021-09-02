@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { recordingsState } from "../../atoms/recording";
+import { recordingsState } from "../../recoil/recordings";
 import { RecordingItem } from "../recording-item/recording-item";
 import "./styles.css";
 

@@ -1,10 +1,20 @@
 import { selector } from "recoil";
-import { shuffle } from "../utils";
-import {
-  recordingsState,
-  selectedRecordingState,
-  ShuffleRecordingsState,
-} from "../atoms/recording";
+import { recordingsState, selectedRecordingState } from "../recordings";
+import { shuffleRecordingsState } from "./atoms";
+import { shuffle } from "../../utils";
+
+export const playlistState = selector({
+  key: "playlist",
+  get: ({ get }) => {
+    const recordings = get(recordingsState);
+    const shuffleRecordings = get(shuffleRecordingsState);
+
+    if (shuffleRecordings) {
+      return shuffle(recordings);
+    }
+    return recordings;
+  },
+});
 
 export const playlistIndexState = selector({
   key: "selectedRecordingIndex",
@@ -21,7 +31,7 @@ export const nextRecordingState = selector({
   get: ({ get }) => {
     const selectedIndex = get(playlistIndexState);
     const playlist = get(playlistState);
-    const shuffleRecordings = get(ShuffleRecordingsState);
+    const shuffleRecordings = get(shuffleRecordingsState);
 
     if (!shuffleRecordings) {
       return playlist[selectedIndex + 1];
@@ -37,25 +47,12 @@ export const prevRecordingState = selector({
     const selectedIndex = get(playlistIndexState);
     const playlist = get(playlistState);
 
-    const shuffleRecordings = get(ShuffleRecordingsState);
+    const shuffleRecordings = get(shuffleRecordingsState);
 
     if (!shuffleRecordings) {
       return playlist[selectedIndex - 1];
     }
 
     return playlist[selectedIndex - 1] || playlist[playlist.length - 1];
-  },
-});
-
-export const playlistState = selector({
-  key: "playlist",
-  get: ({ get }) => {
-    const recordings = get(recordingsState);
-    const shuffleRecordings = get(ShuffleRecordingsState);
-
-    if (shuffleRecordings) {
-      return shuffle(recordings);
-    }
-    return recordings;
   },
 });

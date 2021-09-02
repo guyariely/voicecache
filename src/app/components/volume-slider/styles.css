@@ -46,7 +46,7 @@
 }
 
 .controls .volume-slider .thumb .thumb-value {
-  color: #393f65;
+  color: var(--text-teritary-color);
   font-weight: bold;
   font-size: 14px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Slider } from "@material-ui/core";
 import "./styles.css";
 import { useRecoilState } from "recoil";
-import { SliderVolumeState } from "../../atoms/recording";
+import { sliderVolumeState } from "../../recoil/player";
 
 function VolumeThumb(props) {
   return (
@@ -13,9 +13,7 @@ function VolumeThumb(props) {
 }
 
 export function VolumeSlider() {
-  const [volume, setVolume] = useRecoilState(SliderVolumeState);
-
-  console.log(volume);
+  const [volume, setVolume] = useRecoilState(sliderVolumeState);
 
   return (
     <Slider

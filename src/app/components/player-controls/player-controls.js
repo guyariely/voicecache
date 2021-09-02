@@ -2,12 +2,10 @@ import { IconButton } from "@material-ui/core";
 import { Loop, Shuffle, SkipNext, SkipPrevious } from "@material-ui/icons";
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  LoopRecordingState,
-  recordingsLengthState,
-  ShuffleRecordingsState,
-} from "../../atoms/recording";
 import { usePlaylist } from "../../hooks";
+import { loopRecordingState } from "../../recoil/player";
+import { recordingsLengthState } from "../../recoil/recordings";
+import { shuffleRecordingsState } from "../../recoil/playlist";
 import { VolumeSlider } from "../volume-slider/volume-slider";
 import "./styles.css";
 
@@ -25,9 +23,9 @@ function Control(props) {
 
 export function PlayerControls() {
   const recordingsLength = useRecoilValue(recordingsLengthState);
-  const [loopRecording, setLoopRecording] = useRecoilState(LoopRecordingState);
+  const [loopRecording, setLoopRecording] = useRecoilState(loopRecordingState);
   const [shuffleRecordings, setShuffleRecordings] = useRecoilState(
-    ShuffleRecordingsState
+    shuffleRecordingsState
   );
 
   const playlist = usePlaylist();

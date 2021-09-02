@@ -25,7 +25,7 @@
   height: 60%;
   background: linear-gradient(
     180deg,
-    var(--text-teritary-color) 0%,
+    var(--text-secondary-color) 0%,
     #7d96ad 100%
   );
   box-shadow: -6px -6px 16px rgb(255 255 255 / 60%), 6px 9px 40px #99b7d1;
@@ -60,5 +60,5 @@
 .audio-player .play-icon,
 .audio-player .pause-icon {
   font-size: 40px;
-  color: var(--text-teritary-color);
+  color: var(--text-secondary-color);
 }

@@ -4,14 +4,18 @@ import "react-h5-audio-player/lib/styles.css";
 import { Pause, PlayArrow } from "@material-ui/icons";
 import "./styles.css";
 import { useRecoilValue } from "recoil";
-import { LoopRecordingState, VolumeState } from "../../atoms/recording";
+import { loopRecordingState, volumeState } from "../../recoil/player";
 
 export function AudioPlayer(props) {
   const { src } = props;
-  const loop = useRecoilValue(LoopRecordingState);
-  const volume = useRecoilValue(VolumeState);
+  const loop = useRecoilValue(loopRecordingState);
+  const volume = useRecoilValue(volumeState);
 
   useEffect(() => {
+    /**
+     * The H5AudioPlayer component does not react to prop updates,
+     * so this effect will manually update the underlying audio element
+     */
     const audioPlayer = document.querySelector(".audio-player audio");
     audioPlayer.loop = loop;
     audioPlayer.volume = volume;

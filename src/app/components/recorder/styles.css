@@ -10,7 +10,7 @@
 }
 
 .recorder .button.start {
-  background: #fff;
+  background: var(--background-teritary-color);
 }
 
 .recorder .button.start:hover {
@@ -32,9 +32,9 @@
 }
 
 .recorder .start .mic-icon {
-  color: rgba(255, 107, 89, 1);
+  color: var(--primary-color);
 }
 
 .recorder .stop .mic-icon {
-  color: #fff;
+  color: var(--background-teritary-color);
 }

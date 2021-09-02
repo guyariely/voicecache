@@ -5,19 +5,25 @@
     #e8f0f8 0%,
     #ffffff 100%
   );
+  --background-teritary-color: #ffff;
+
   --text-color: #31456a;
-  --text-secondary-color: rgba(255, 255, 255, 1);
-  --text-teritary-color: #97b4cf;
-  --shadow-color: rgba(176, 195, 210, 0.7278);
-  --shadow-primary-color: rgba(255, 134, 119, 1);
+  --text-secondary-color: #97b4cf;
+  --text-teritary-color: #393f65;
+
+  --primary-color: rgba(255, 107, 89, 1);
   --primary-gradient-color: linear-gradient(
     89.91deg,
     #ff6b59 -8.26%,
     #d35646 144.55%
   );
-  --primary-color: rgba(255, 107, 89, 1);
+
   --border-color: rgba(229, 239, 250, 1);
   --border-secondary-color: #ffff;
+
+  --shadow-color: rgba(176, 195, 210, 0.7278);
+  --shadow-primary-color: rgba(255, 134, 119, 1);
+
   --inset-shadow: inset 30px -24px 26px rgb(255 255 255 / 75%),
     inset 0px 9px 18px #c9d3e2, inset 0px 2px 22px #c8d4e2;
 }

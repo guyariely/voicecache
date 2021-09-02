@@ -3,8 +3,8 @@ import {
   nextRecordingState,
   playlistIndexState,
   prevRecordingState,
-} from "../selectors/playlist";
-import { selectedRecordingState } from "../atoms/recording";
+} from "../recoil/playlist";
+import { selectedRecordingState } from "../recoil/recordings";
 
 export function usePlaylist() {
   const setSelectedRecording = useSetRecoilState(selectedRecordingState);

@@ -15,7 +15,7 @@
     linear-gradient(
         165.33deg,
         #ffffff 15.76%,
-        rgba(219, 230, 242, 0) 47.38%,
+        rgba(241, 241, 241, 0) 47.38%,
         #8f9fae 111.31%
       )
       border-box;
@@ -50,7 +50,7 @@
 
 .control.button .icon {
   font-size: 30px;
-  color: var(--text-teritary-color);
+  color: var(--text-secondary-color);
 }
 
 .control.button.active .icon {

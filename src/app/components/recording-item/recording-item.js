@@ -1,6 +1,9 @@
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { recordingState, selectedRecordingState } from "../../atoms/recording";
+import {
+  recordingState,
+  selectedRecordingState,
+} from "../../recoil/recordings";
 import { toDateString, toTimeString } from "../../utils";
 import "./styles.css";
 
