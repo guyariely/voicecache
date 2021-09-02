@@ -1,52 +1,60 @@
 .controls .volume-slider {
   flex: 1;
-  margin: 20px 0 0 0;
+
   width: 20px;
+  margin: 20px 0 0 0;
 }
 
 .controls .volume-slider .MuiSlider-rail {
-  background: linear-gradient(135deg, #ffff 0%, #ffffff 100%) padding-box,
-    linear-gradient(293.61deg, #c6d0db 22.55%, #e3edf7 89.53%) border-box;
-  box-shadow: inset -3.19137px -2.5531px 3.19137px rgba(255, 255, 255, 0.750601),
-    inset 0px 1.91482px 4.46792px #c9d3e2, inset 0px 2.5531px 5.74447px #c8d4e2;
-  border-radius: 42px;
-  border: 2px solid transparent;
   width: 20px;
+
+  border: 2px solid transparent;
+  border-radius: 42px;
+  background: linear-gradient(135deg, #ffff 0%, #fff 100%) padding-box,
+    linear-gradient(293.61deg, #c6d0db 22.55%, #e3edf7 89.53%) border-box;
+  box-shadow: inset -3.19137px -2.5531px 3.19137px rgba(255, 255, 255, .750601),
+    inset 0 1.91482px 4.46792px #c9d3e2, inset 0 2.5531px 5.74447px #c8d4e2;
 }
 
 .controls .volume-slider .MuiSlider-track {
-  background: linear-gradient(270deg, #97b4cf 0%, #bfd7ec 95.89%);
-  opacity: 0.9;
-  box-shadow: -7.02102px -7.02102px 12.7655px rgba(255, 255, 255, 0.272044),
-    -5.1062px -25.531px 14.042px rgba(246, 251, 255, 0.384288),
-    -5.1062px 0px 5.1062px rgba(244, 248, 251, 0.50254),
-    12.1272px 13.4038px 31.9137px rgba(176, 195, 210, 0.727846);
-  width: 20px;
-  border-radius: 0 0 42px 42px;
   left: 34%;
+
+  width: 20px;
+
   transform: translateY(1%) translateX(-1%);
+
+  opacity: .9;
+  border-radius: 0 0 42px 42px;
+  background: linear-gradient(270deg, #97b4cf 0%, #bfd7ec 95.89%);
+  box-shadow: -7.02102px -7.02102px 12.7655px rgba(255, 255, 255, .272044),
+    -5.1062px -25.531px 14.042px rgba(246, 251, 255, .384288),
+    -5.1062px 0 5.1062px rgba(244, 248, 251, .50254),
+    12.1272px 13.4038px 31.9137px rgba(176, 195, 210, .727846);
 }
 
 .controls .volume-slider .thumb {
   position: absolute;
   left: -5%;
-  transform: translateY(20%);
 
-  background: linear-gradient(154.95deg, #e4f0fa 12.66%, #ffffff 86.7%)
-      padding-box,
-    linear-gradient(270deg, #e5effa -10.79%, #ffffff 109.37%) border-box;
-  box-shadow: 0px 10.2124px 16.5951px #b0c3d2;
-  border-radius: 47.2323px;
-  border: 1.28px solid transparent;
-
-  padding: 6px 0;
-  width: 55px;
   display: flex;
   justify-content: center;
+
+  width: 55px;
+  padding: 6px 0;
+
+  transform: translateY(20%);
+
+  border: 1.28px solid transparent;
+  border-radius: 47.2323px;
+  background: linear-gradient(154.95deg, #e4f0fa 12.66%, #fff 86.7%)
+      padding-box,
+    linear-gradient(270deg, #e5effa -10.79%, #fff 109.37%) border-box;
+  box-shadow: 0 10.2124px 16.5951px #b0c3d2;
 }
 
 .controls .volume-slider .thumb .thumb-value {
-  color: var(--text-teritary-color);
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
+
+  color: var(--text-teritary-color);
 }

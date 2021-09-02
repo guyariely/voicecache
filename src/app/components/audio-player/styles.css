@@ -1,7 +1,8 @@
 .audio-player {
   margin: 0 40px;
-  background-color: transparent;
+
   border: none;
+  background-color: transparent;
   box-shadow: none;
 }
 
@@ -10,26 +11,28 @@
 }
 
 .audio-player .rhap_progress-bar {
-  align-items: center;
   display: flex;
-  padding: 0 10px;
-  height: 35px;
+  align-items: center;
 
-  background: var(--background-secondary-color);
+  height: 35px;
+  padding: 0 10px;
+
   border: 3px solid var(--border-color);
-  box-shadow: var(--inset-shadow);
   border-radius: 41px;
+  background: var(--background-secondary-color);
+  box-shadow: var(--inset-shadow);
 }
 
 .audio-player .rhap_progress-filled {
   height: 60%;
+
+  border-radius: 37px;
   background: linear-gradient(
     180deg,
     var(--text-secondary-color) 0%,
     #7d96ad 100%
   );
   box-shadow: -6px -6px 16px rgb(255 255 255 / 60%), 6px 9px 40px #99b7d1;
-  border-radius: 37px;
 }
 
 .audio-player .rhap_controls-section {
@@ -37,28 +40,33 @@
 }
 
 .audio-player .rhap_progress-indicator {
+  width: 82px;
+  height: 44px;
+
+  border: 2px solid var(--border-secondary-color);
+  border-radius: 74px;
   background: var(--background-color);
   box-shadow: 25px 28px 66px var(--shadow-color);
-  border-radius: 74px;
-  height: 44px;
-  width: 82px;
-  border: 2px solid var(--border-secondary-color);
 }
 
 .audio-player .rhap_progress-indicator::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  background: var(--primary-gradient-color);
-  box-shadow: 0px 0px 30px 0px var(--shadow-primary-color);
-  border-radius: 46px;
   position: absolute;
   top: 28%;
   left: 60%;
+
+  width: 18px;
+  height: 18px;
+
+  content: '';
+
+  border-radius: 46px;
+  background: var(--primary-gradient-color);
+  box-shadow: 0 0 30px 0 var(--shadow-primary-color);
 }
 
 .audio-player .play-icon,
 .audio-player .pause-icon {
   font-size: 40px;
+
   color: var(--text-secondary-color);
 }
