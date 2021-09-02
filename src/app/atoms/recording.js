@@ -20,6 +20,14 @@ export const recordingState = atomFamily({
   },
 });
 
+export const recordingsLengthState = selector({
+  key: "recordingsLength",
+  get: ({ get }) => {
+    const recordings = get(recordingsState);
+    return recordings.length;
+  },
+});
+
 export const LoopRecordingState = atom({
   key: "loopRecording",
   default: false,

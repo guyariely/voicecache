@@ -1,6 +1,6 @@
 .controls .volume-slider {
-  margin: 40px 0;
-  height: clamp(220px, 250px, 320px);
+  flex: 1;
+  margin: 20px 0 0 0;
   width: 20px;
 }
 

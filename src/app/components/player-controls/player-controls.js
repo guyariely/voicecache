@@ -1,9 +1,10 @@
 import { IconButton } from "@material-ui/core";
 import { Loop, Shuffle, SkipNext, SkipPrevious } from "@material-ui/icons";
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   LoopRecordingState,
+  recordingsLengthState,
   ShuffleRecordingsState,
 } from "../../atoms/recording";
 import { usePlaylist } from "../../hooks";
@@ -23,6 +24,7 @@ function Control(props) {
 }
 
 export function PlayerControls() {
+  const recordingsLength = useRecoilValue(recordingsLengthState);
   const [loopRecording, setLoopRecording] = useRecoilState(LoopRecordingState);
   const [shuffleRecordings, setShuffleRecordings] = useRecoilState(
     ShuffleRecordingsState
@@ -31,33 +33,35 @@ export function PlayerControls() {
   const playlist = usePlaylist();
 
   return (
-    !Object.is(playlist.at, undefined) && (
+    recordingsLength > 0 && (
       <div className="player-controls">
-        <div className="controls">
-          <Control
-            icon={Shuffle}
-            className={`shuffle ${shuffleRecordings ? "active" : ""}`}
-            onClick={() => setShuffleRecordings(shuffle => !shuffle)}
-          />
-          <Control
-            icon={SkipPrevious}
-            className="prev"
-            disabled={!playlist.hasPrev}
-            onClick={() => playlist.prev()}
-          />
-          <Control
-            icon={SkipNext}
-            className="next"
-            disabled={!playlist.hasNext}
-            onClick={() => playlist.next()}
-          />
-          <Control
-            icon={Loop}
-            className={`loop ${loopRecording ? "active" : ""}`}
-            onClick={() => setLoopRecording(loop => !loop)}
-          />
-          <VolumeSlider />
-        </div>
+        {!Object.is(playlist.at, undefined) && (
+          <div className="controls">
+            <Control
+              icon={Shuffle}
+              className={`shuffle ${shuffleRecordings ? "active" : ""}`}
+              onClick={() => setShuffleRecordings(shuffle => !shuffle)}
+            />
+            <Control
+              icon={SkipPrevious}
+              className="prev"
+              disabled={!playlist.hasPrev}
+              onClick={() => playlist.prev()}
+            />
+            <Control
+              icon={SkipNext}
+              className="next"
+              disabled={!playlist.hasNext}
+              onClick={() => playlist.next()}
+            />
+            <Control
+              icon={Loop}
+              className={`loop ${loopRecording ? "active" : ""}`}
+              onClick={() => setLoopRecording(loop => !loop)}
+            />
+            <VolumeSlider />
+          </div>
+        )}
       </div>
     )
   );
